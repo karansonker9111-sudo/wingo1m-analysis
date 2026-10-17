@@ -9,7 +9,7 @@
 :root{color-scheme:dark;--bg:#0b1020;--panel:#121a2d;--panel2:#18233b;--text:#eef3ff;--muted:#9eacc9;--line:#293653;--accent:#62d6c7;--warn:#ffcc80}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#172342,var(--bg) 60%);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
 main{max-width:980px;margin:auto;padding:22px 14px 50px}header{display:flex;align-items:center;gap:12px;margin-bottom:18px}.logo{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#62d6c7,#6f8cff);color:#07121e;font-weight:900;font-size:20px}h1{font-size:25px;margin:0}header p{margin:2px 0 0;color:var(--muted)}
-.panel{background:linear-gradient(160deg,var(--panel),#10172a);border:1px solid var(--line);border-radius:18px;padding:17px;margin:13px 0;box-shadow:0 10px 30px #0002}.panel h2{font-size:17px;margin:0 0 12px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.field{flex:1;min-width:180px}label{display:block;color:var(--muted);font-size:13px;margin-bottom:6px}input,select,button{font:inherit;border-radius:11px;border:1px solid var(--line);padding:11px 12px;background:#0c1426;color:var(--text);width:100%}button{cursor:pointer;background:var(--accent);color:#071923;border:0;font-weight:750;width:auto;min-width:110px}button.secondary{background:#24314e;color:var(--text);border:1px solid #344566}button:disabled{opacity:.5}.small{font-size:12px;color:var(--muted)}.status{padding:10px 12px;border-radius:10px;background:#0c1426;border:1px solid var(--line);color:var(--muted);overflow-wrap:anywhere}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.stat{padding:13px;background:var(--panel2);border-radius:12px}.stat span{display:block;color:var(--muted);font-size:12px}.stat strong{font-size:22px}.pills{display:flex;gap:8px;flex-wrap:wrap}.pill{padding:7px 11px;border-radius:999px;background:#24314e;color:var(--muted);font-size:13px}.pill.active{background:#1b4d50;color:#aaf5e8}.balls{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.ball{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;font-weight:800;background:#293653;border:1px solid #46577a}.ball.red{background:#542a42}.ball.green{background:#16483e}.ball.violet{outline:2px solid #a78bfa}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:340px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}th{font-size:12px;color:var(--muted)}.warning{color:var(--warn)}@media(max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}h1{font-size:22px}.panel{padding:14px}}
+.panel{background:linear-gradient(160deg,var(--panel),#10172a);border:1px solid var(--line);border-radius:18px;padding:17px;margin:13px 0;box-shadow:0 10px 30px #0002}.panel h2{font-size:17px;margin:0 0 12px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.field{flex:1;min-width:180px}label{display:block;color:var(--muted);font-size:13px;margin-bottom:6px}input,select,button{font:inherit;border-radius:11px;border:1px solid var(--line);padding:11px 12px;background:#0c1426;color:var(--text);width:100%}button{cursor:pointer;background:var(--accent);color:#071923;border:0;font-weight:750;width:auto;min-width:110px}button.secondary{background:#24314e;color:var(--text);border:1px solid #344566}button:disabled{opacity:.5}.small{font-size:12px;color:var(--muted)}.status{padding:10px 12px;border-radius:10px;background:#0c1426;border:1px solid var(--line);color:var(--muted);overflow-wrap:anywhere}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.stat{padding:13px;background:var(--panel2);border-radius:12px}.stat span{display:block;color:var(--muted);font-size:12px}.stat strong{font-size:22px}.pills{display:flex;gap:8px;flex-wrap:wrap}.pill{padding:7px 11px;border-radius:999px;background:#24314e;color:var(--muted);font-size:13px}.pill.active{background:#1b4d50;color:#aaf5e8}.balls{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.ball{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;font-weight:800;background:#293653;border:1px solid #46577a}.ball.red{background:#542a42}.ball.green{background:#16483e}.ball.violet{outline:2px solid #a78bfa}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:340px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}th{font-size:12px;color:var(--muted)}.warning{color:var(--warn)}.conn{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}.dot{width:10px;height:10px;border-radius:50%;background:#6b7a99;flex:none}.conn.live .dot{background:#3ee0a1;box-shadow:0 0 0 4px #3ee0a133}.conn.stale .dot{background:var(--warn)}.conn.demo .dot{background:#a78bfa}.conn b{font-size:13px;letter-spacing:.03em}.period{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.period .stat{flex:1;min-width:140px}.status.err{color:#ffb4b4;border-color:#6b2c3a;background:#2a1220}.check{display:flex;gap:8px;align-items:center;margin:10px 0 0;color:var(--muted);font-size:13px}.check input{width:auto}.period strong{font-size:17px;overflow-wrap:anywhere}.next{border:2px solid var(--accent);background:linear-gradient(160deg,#123038,#10172a)}.next h2{font-size:19px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.badge{font-size:11px;font-weight:800;letter-spacing:.04em;padding:4px 9px;border-radius:999px;background:#5a3b12;color:var(--warn);border:1px solid #8a5a1c}.badge.live{background:#16483e;color:#aaf5e8;border-color:#2b7a6b}.lean{display:flex;gap:10px;flex-wrap:wrap;align-items:baseline;margin:4px 0 12px}.lean strong{font-size:28px}.cands{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:8px 0 12px}.cand{padding:12px;background:var(--panel2);border-radius:12px;text-align:center}.cand .ball{margin:0 auto 6px}.cand span{display:block;color:var(--muted);font-size:12px}.reason{margin:0;padding-left:18px;color:var(--muted);font-size:13px}.reason li{margin:3px 0}@media(max-width:600px){.cands{gap:8px}.cand{padding:10px 6px}.lean strong{font-size:24px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}h1{font-size:22px}.panel{padding:14px}}
 </style>
 </head>
 <body><main>
@@ -18,12 +18,16 @@ main{max-width:980px;margin:auto;padding:22px 14px 50px}header{display:flex;alig
 <h2>1. History source</h2>
 <p class="small">Paste a public JSON URL you are allowed to access. The source must permit browser CORS, or use your own authorized API. No login token or private key should be entered here.</p>
 <div class="row"><div class="field"><label for="source">Public JSON endpoint URL</label><input id="source" type="url" placeholder="https://example.com/history.json"></div><button id="load">Load history</button></div>
-<div class="row" style="margin-top:10px"><button class="secondary" id="demo">Use demo data</button><button class="secondary" id="clear">Clear</button></div>
-<div class="status" id="status" style="margin-top:12px">Ready. Demo data is available; live source is not connected.</div>
+<div class="row" style="margin-top:10px"><button class="secondary" id="refresh" disabled>Refresh now</button><button class="secondary" id="demo">Use demo data</button><button class="secondary" id="clear">Clear</button></div>
+<div class="conn" id="conn"><span class="dot"></span><b id="connLabel">NOT CONNECTED</b><span class="small" id="connDetail">No live source connected.</span></div>
+<label class="check"><input type="checkbox" id="bust" checked> Bypass caches (adds a <code>_ts</code> timestamp parameter to each request)</label>
+<div class="status" id="status" style="margin-top:10px">Ready. Demo data is available; live source is not connected.</div>
+<div class="status err" id="apiError" style="margin-top:8px" hidden></div>
 </section>
 <section class="panel">
 <h2>2. Recent history</h2>
 <div class="row"><div class="field"><label for="count">Results to analyze</label><select id="count"><option>10</option><option>20</option><option selected>30</option><option>50</option><option>100</option></select></div><div class="field"><label for="mode">Game interval label</label><select id="mode"><option>30 seconds</option><option selected>1 minute</option><option>3 minutes</option><option>5 minutes</option></select></div></div>
+<div class="period"><div class="stat"><span>Latest period</span><strong id="lastPeriod">—</strong></div><div class="stat"><span>Next period</span><strong id="nextPeriod">—</strong></div><div class="stat"><span>Last successful fetch</span><strong id="updated">—</strong></div></div>
 <div class="balls" id="balls"></div><div class="small" id="historyNote">No history loaded.</div>
 </section>
 <section class="panel"><h2>3. Observed statistics</h2>
@@ -31,48 +35,164 @@ main{max-width:980px;margin:auto;padding:22px 14px 50px}header{display:flex;alig
 <div class="row" style="margin-top:14px"><div class="field"><label>Big / Small split</label><div class="pills" id="split"></div></div></div>
 <div class="tablewrap"><table><thead><tr><th>Digit</th><th>Count</th><th>Share</th><th>Big/Small</th></tr></thead><tbody id="digitTable"></tbody></table></div>
 </section>
-<section class="panel"><h2>4. Pattern notes</h2><div id="notes" class="status">Load history to see descriptive statistics.</div><p class="small warning" style="margin-bottom:0">Important: past outcomes do not reliably predict the next result. Any “possible numbers” are only frequency-based candidates, not a guaranteed forecast. Do not stake money based on this analysis.</p></section>
+<section class="panel next" id="nextPanel" aria-live="polite"><h2>4. Next Round Analysis <span class="badge" id="nextBadge">NO DATA</span></h2>
+<p class="small" id="nextSource" style="margin-top:0">Load history or demo data to see a history-based indication.</p>
+<label>History-based Big / Small indication</label><div class="lean"><strong id="nextLean">—</strong><span class="small" id="nextLeanDetail"></span></div>
+<label>3 possible number candidates (by frequency)</label><div class="cands" id="nextCands"></div>
+<label>Counts &amp; reasoning used</label><ul class="reason" id="nextReason"><li>No history loaded.</li></ul>
+<p class="small warning" style="margin-bottom:0">This is a frequency summary of past results, not a prediction. The next result is not guaranteed and may be anything from 0–9.</p></section>
+<section class="panel"><h2>5. Pattern notes</h2><div id="notes" class="status">Load history to see descriptive statistics.</div><p class="small warning" style="margin-bottom:0">Important: past outcomes do not reliably predict the next result. Any “possible numbers” are only frequency-based candidates, not a guaranteed forecast. Do not stake money based on this analysis.</p></section>
 <footer class="small">Wingo Analysis • Live connection only works with a permitted, reachable JSON endpoint.</footer>
 </main>
 <script>
 const $=id=>document.getElementById(id);
-let history=[],sourceMode="none";
+const REFRESH_SECONDS=30,FETCH_TIMEOUT_MS=10000,DEMO=[8,0,8,2,7,7,8,9,8,0,4,6,3,5,2,1,9,6,4,7,3,8,2,5,0,6,1,7,4,9];
+let history=[],periods=[],sourceMode="none",liveUrl="",inFlight=false,countdown=0;
+let lastSuccess=null,lastAttempt=null,lastError="",stale=false;
+const esc=v=>String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const ballClass=d=>`ball ${d===0||d===5?'violet':''} ${[1,3,7,9].includes(d)?'green':'red'}`;
+const pct=(c,t)=>t?Math.round(c/t*100):0;
+const time=d=>d?d.toLocaleTimeString():"—";
+const LIST_KEYS=["list","data","results","records","history","items","rows"];
+const DIGIT_KEYS=["number","result","openNumber","lotteryNumber","winningNumber","value"];
+const PERIOD_KEYS=["issueNumber","issue","issue_number","issueNo","period","periodNumber","period_no","periodId","drawNo","expect","gameNo","roundNo"];
+function findList(obj){
+ if(Array.isArray(obj))return obj;
+ for(const scope of [obj?.data,obj]){if(!scope||typeof scope!=="object")continue;for(const k of LIST_KEYS)if(Array.isArray(scope[k]))return scope[k];}
+ return null;
+}
 function extract(payload){
  let obj=payload;
  if(typeof obj==="string") obj=JSON.parse(obj);
- let arr=Array.isArray(obj)?obj:(obj?.data?.list||obj?.data?.data||obj?.data?.results||obj?.list||obj?.results||obj?.records||obj?.history||[]);
- if(!Array.isArray(arr)) throw Error("JSON mila, lekin results ki list nahi mili.");
- return arr.map(item=>{
-   let raw=(typeof item==="number"||typeof item==="string")?item:(item?.number??item?.result??item?.openNumber??item?.lotteryNumber??item?.winningNumber??item?.value??item?.premium);
-   let match=String(raw??"").match(/\d/);
-   return match?Number(match[0]):null;
- }).filter(n=>Number.isInteger(n)&&n>=0&&n<=9);
+ const arr=findList(obj);
+ if(!arr){const msg=obj?.msg??obj?.message??obj?.error;throw Error(msg?`Source replied: ${msg}`:"JSON mila, lekin results ki list nahi mili.");}
+ const rows=arr.map(item=>{
+   let d=null,p=null;
+   if(item&&typeof item==="object"){
+    const k=DIGIT_KEYS.find(k=>item[k]!=null&&item[k]!=="");
+    // premium is a multi-digit draw value; its last digit is the result
+    const raw=k?String(item[k]):item.premium!=null?String(item.premium).replace(/\D/g,"").slice(-1):"";
+    const m=raw.match(/\d/);d=m?Number(m[0]):null;
+    const pk=PERIOD_KEYS.find(k=>item[k]!=null&&item[k]!=="");p=pk?String(item[pk]).trim():null;
+   }else{const m=String(item??"").match(/\d/);d=m?Number(m[0]):null;}
+   return {d,p};
+ }).filter(r=>Number.isInteger(r.d)&&r.d>=0&&r.d<=9);
+ // Newest first: order by the digits in the period whenever every row has one
+ const key=r=>r.p&&r.p.replace(/\D/g,"");
+ if(rows.length>1&&rows.every(key)) rows.sort((x,y)=>{const a=BigInt(key(x)),b=BigInt(key(y));return a<b?1:a>b?-1:0;});
+ return rows;
+}
+function nextPeriod(p){return p&&/^\d+$/.test(p)?(BigInt(p)+1n).toString().padStart(p.length,"0"):null;}
+function bigSmallLean(big,small,valid){
+ if(!valid)return {label:"—",detail:""};
+ const detail=`Big ${big} (${pct(big,valid)}%) • Small ${small} (${pct(small,valid)}%) • last ${valid} results`;
+ if(big===small)return {label:"Tie — no statistical lean",detail};
+ const side=big>small?"Big (5–9)":"Small (0–4)";
+ return {label:`Weak lean: ${side}`,detail};
+}
+function renderNext(data,counts,big,small){
+ const valid=data.length,live=sourceMode==="live"&&valid>0,nextP=nextPeriod(periods[0]);
+ $("nextBadge").textContent=!valid?"NO DATA":live?(stale?"LIVE (STALE)":"LIVE HISTORY"):"DEMO / SAMPLE ANALYSIS";
+ $("nextBadge").className="badge"+(live?" live":"");
+ $("nextSource").innerHTML=!valid?"Load history or demo data to see a history-based indication.":live?`Based on the last ${valid} live results${nextP?` — for period ${esc(nextP)}`:""}. Last successful fetch ${time(lastSuccess)}${stale?" (latest refresh failed; showing last good live data)":""}.`:"Live history is unavailable — this uses demo/sample data only and does not reflect real game results.";
+ const lean=bigSmallLean(big,small,valid);
+ $("nextLean").textContent=lean.label;$("nextLeanDetail").textContent=lean.detail;
+ if(!valid){$("nextCands").innerHTML="";$("nextReason").innerHTML="<li>No history loaded.</li>";return;}
+ const lastSeen=d=>{const i=data.indexOf(d);return i<0?Infinity:i;};
+ const top=counts.map((c,d)=>({d,c})).sort((a,b)=>b.c-a.c||lastSeen(a.d)-lastSeen(b.d)||a.d-b.d).slice(0,3);
+ $("nextCands").innerHTML=top.map(x=>`<div class="cand"><span class="${ballClass(x.d)}">${x.d}</span><span>${x.c} of ${valid} (${pct(x.c,valid)}%)</span><span>${x.d>=5?"Big":"Small"}</span></div>`).join("");
+ const tieNote=new Set(top.map(x=>x.c)).size<3||counts.filter(c=>c===top[2].c).length>1;
+ const gap=Math.abs(big-small);
+ $("nextReason").innerHTML=[
+  `Window: last ${valid} valid results (${esc($("mode").value)} label).`,
+  `Big/Small counts: Big ${big} (${pct(big,valid)}%) vs Small ${small} (${pct(small,valid)}%), a difference of ${gap}.`,
+  big===small?"Counts are equal, so no side is indicated.":`The weak lean only names the group that appeared more often in this window. A gap of ${gap} in ${valid} results is well within normal random variation, so it is not evidence about the next round.`,
+  `Candidates = the 3 digits with the highest counts: ${top.map(x=>`${x.d} → ${x.c} (${pct(x.c,valid)}%)`).join(", ")}. Every digit has the same 10% chance each round.`,
+  tieNote?"Where counts are tied, the digit seen more recently is listed first, then the lower digit.":"",
+  valid<20?"Small sample: with fewer than 20 results these counts are especially noisy.":"",
+  "Each round is independent; past frequency does not change the odds of the next result."
+ ].filter(Boolean).map(t=>`<li>${t}</li>`).join("");
 }
 function render(){
  const n=Number($("count").value), data=history.slice(0,n), valid=data.length;
- $("balls").innerHTML=data.map(d=>`<span class="ball ${d===0||d===5?'violet':''} ${[1,3,7,9].includes(d)?'green':'red'}">${d}</span>`).join("");
- $("historyNote").textContent=valid?`Showing ${valid} valid digits (newest first where source supplies newest first). Interval: ${$("mode").value}.`:"No valid history loaded.";
+ $("balls").innerHTML=data.map((d,i)=>`<span class="${ballClass(d)}"${periods[i]?` title="Period ${esc(periods[i])}"`:""}>${d}</span>`).join("");
+ $("historyNote").textContent=valid?`Showing ${valid} valid digits (newest first). Interval: ${$("mode").value}.${sourceMode==="demo"?" Demo/sample data — not live results.":""}`:"No valid history loaded.";
+ $("lastPeriod").textContent=periods[0]||(sourceMode==="demo"?"Sample (no period)":sourceMode==="live"?"Not provided by source":"—");
+ $("nextPeriod").textContent=nextPeriod(periods[0])||(sourceMode==="demo"?"Sample (no period)":"—");
+ $("updated").textContent=sourceMode==="live"?time(lastSuccess)+(stale?" (stale)":""):sourceMode==="demo"?"Demo data":"—";
  const big=data.filter(d=>d>=5).length, small=valid-big, counts=Array(10).fill(0); data.forEach(d=>counts[d]++);
- $("valid").textContent=valid;$("big").textContent=big;$("small").textContent=small;
+ $("valid").textContent=valid;$("big").textContent=valid?`${big} (${pct(big,valid)}%)`:"0";$("small").textContent=valid?`${small} (${pct(small,valid)}%)`:"0";
  const max=Math.max(...counts,0), common=counts.indexOf(max); $("common").textContent=valid?`${common} (${max})`:"—";
- $("split").innerHTML=valid?`<span class="pill active">Big ${Math.round(big/valid*100)}%</span><span class="pill">Small ${Math.round(small/valid*100)}%</span>`:"—";
- $("digitTable").innerHTML=counts.map((c,d)=>`<tr><td>${d}</td><td>${c}</td><td>${valid?Math.round(c/valid*100):0}%</td><td>${d>=5?"Big":"Small"}</td></tr>`).join("");
+ $("split").innerHTML=valid?(big===small?`<span class="pill active">Tie — Big ${big} / Small ${small} (50% each)</span>`:`<span class="pill${big>small?" active":""}">Big ${big} • ${pct(big,valid)}%</span><span class="pill${small>big?" active":""}">Small ${small} • ${pct(small,valid)}%</span>`):"—";
+ $("digitTable").innerHTML=counts.map((c,d)=>`<tr><td>${d}</td><td>${c}</td><td>${pct(c,valid)}%</td><td>${d>=5?"Big":"Small"}</td></tr>`).join("");
  const streak=data.length?(()=>{let k=1;for(let i=1;i<data.length;i++){if((data[i]>=5)===(data[0]>=5))k++;else break;}return `${data[0]>=5?"Big":"Small"} × ${k} at newest end`;})():"No data";
  const ranked=counts.map((c,d)=>({d,c})).sort((a,b)=>b.c-a.c||a.d-b.d).slice(0,3).map(x=>x.d).join(", ");
  const zeroes=counts.map((c,d)=>({c,d})).filter(x=>x.c===0).map(x=>x.d);
+ renderNext(data,counts,big,small);
  $("notes").textContent=valid?`Observed in this sample: ${streak}. Top 3 frequency digits: ${ranked}. Digits not seen in this sample: ${zeroes.length?zeroes.join(", "):"none"}. These describe only the selected history window; they do not establish what comes next.`:"Load history to see descriptive statistics.";
 }
-async function load(){
- const url=$("source").value.trim();if(!url){$("status").textContent="Pehle authorized public JSON endpoint URL daalein.";return;}
- try{new URL(url);$("status").textContent="Loading…";
- const r=await fetch(url,{headers:{Accept:"application/json"},cache:"no-store"});if(!r.ok)throw Error(`HTTP ${r.status}. Source may block requests.`);
- const payload=await r.json();const parsed=extract(payload);if(!parsed.length)throw Error("JSON me 0–9 results nahi mile.");
- history=parsed;sourceMode="live";$("status").textContent=`Connected: ${parsed.length} valid results read. Refresh manually when needed.`;render();
- }catch(e){$("status").textContent=`Could not load history: ${e.message}. This can be caused by CORS or source restrictions. Use an authorized API that permits browser access.`;}
+function renderConn(){
+ const c=$("conn"),label=$("connLabel"),detail=$("connDetail");
+ $("refresh").disabled=!liveUrl||inFlight;
+ if(sourceMode==="live"){
+  c.className="conn "+(stale?"stale":"live");
+  label.textContent=stale?"LIVE — RECONNECTING":"LIVE — CONNECTED";
+  detail.textContent=inFlight?"Fetching…":`Auto-refresh every ${REFRESH_SECONDS}s • next in ${Math.max(countdown,0)}s • last attempt ${time(lastAttempt)}${document.hidden?" (paused while tab hidden)":""}`;
+ }else if(sourceMode==="demo"){c.className="conn demo";label.textContent="DEMO MODE";detail.textContent="Sample data only — no live source connected.";}
+ else{c.className="conn";label.textContent="NOT CONNECTED";detail.textContent="No live source connected.";}
+ $("apiError").hidden=!lastError;
+ $("apiError").textContent=lastError?`API error (${time(lastAttempt)}): ${lastError}`:"";
 }
+async function fetchHistory(url){
+ const u=new URL(url);if($("bust").checked)u.searchParams.set("_ts",Date.now());
+ const ctl=new AbortController(),timer=setTimeout(()=>ctl.abort(),FETCH_TIMEOUT_MS);
+ try{
+  const r=await fetch(u,{headers:{Accept:"application/json"},cache:"no-store",signal:ctl.signal});
+  if(!r.ok)throw Error(`HTTP ${r.status}. Source may block requests.`);
+  const text=await r.text();let payload;
+  try{payload=JSON.parse(text);}catch{throw Error("Response is not valid JSON.");}
+  const rows=extract(payload);if(!rows.length)throw Error("JSON me 0–9 results nahi mile.");
+  return rows;
+ }catch(e){throw e.name==="AbortError"?Error(`No response within ${FETCH_TIMEOUT_MS/1000}s (request timed out).`):e;}
+ finally{clearTimeout(timer);}
+}
+function applyLive(url,rows){
+ const same=sourceMode==="live"&&liveUrl===url,prevTop=same?periods[0]:null,prevSig=same?history.join(""):null;
+ const newCount=prevTop?rows.findIndex(r=>r.p===prevTop):-1;
+ history=rows.map(r=>r.d);periods=rows.map(r=>r.p);
+ sourceMode="live";liveUrl=url;lastSuccess=new Date();lastError="";stale=false;
+ localStorage.setItem("wingoSource",url);
+ const what=!same?`Connected: ${rows.length} valid results read.`
+  :newCount>0?`${newCount} new result${newCount>1?"s":""} received.`
+  :newCount===0?`Fetch succeeded; source's latest period is still ${prevTop} (no new round published yet).`
+  :!periods[0]&&prevSig===history.join("")?"Fetch succeeded; results unchanged (source provides no period numbers).":"Fetch succeeded; history updated.";
+ $("status").textContent=`${what} ${rows.length} results • fetched ${time(lastSuccess)}.`;
+ render();
+}
+async function run(url,initial){
+ if(inFlight)return;inFlight=true;lastAttempt=new Date();renderConn();
+ try{applyLive(url,await fetchHistory(url));}
+ catch(e){
+  lastError=e.message||String(e);
+  if(sourceMode==="live"&&liveUrl===url){stale=true;$("status").textContent=`Showing last good live data from ${time(lastSuccess)}; retrying in ${REFRESH_SECONDS}s.`;render();}
+  else if(initial)$("status").textContent=`Could not connect. This can be caused by CORS or source restrictions; use an authorized API that permits browser access.${sourceMode==="demo"?" Still showing demo data.":sourceMode==="live"?" Still showing the previous live source.":""}`;
+ }
+ finally{inFlight=false;countdown=REFRESH_SECONDS;renderConn();}
+}
+function load(){
+ const url=$("source").value.trim();if(!url){$("status").textContent="Pehle authorized public JSON endpoint URL daalein.";return;}
+ try{new URL(url);}catch{$("status").textContent="Invalid URL.";return;}
+ $("status").textContent="Loading…";return run(url,true);
+}
+const refresh=()=>liveUrl?run(liveUrl,false):undefined;
+function disconnect(){liveUrl="";stale=false;lastSuccess=null;lastAttempt=null;lastError="";localStorage.removeItem("wingoSource");}
+setInterval(()=>{if(sourceMode!=="live"||!liveUrl||inFlight||document.hidden)return renderConn();if(--countdown<=0)refresh();else renderConn();},1000);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden&&sourceMode==="live"&&countdown<=0)refresh();renderConn();});
 $("load").addEventListener("click",load);
+$("refresh").addEventListener("click",refresh);
 $("count").addEventListener("change",render);$("mode").addEventListener("change",render);
-$("demo").addEventListener("click",()=>{history=[8,0,8,2,7,7,8,9,8,0,4,6,3,5,2,1,9,6,4,7,3,8,2,5,0,6,1,7,4,9];sourceMode="demo";$("status").textContent="Demo data loaded (sample only; not live game results).";render();});
-$("clear").addEventListener("click",()=>{history=[];sourceMode="none";$("status").textContent="Cleared. No live source connected.";render();});
-render();
+$("demo").addEventListener("click",()=>{disconnect();history=DEMO.slice();periods=[];sourceMode="demo";$("status").textContent="Demo data loaded (sample only; not live game results). Auto-refresh is off.";render();renderConn();});
+$("clear").addEventListener("click",()=>{disconnect();history=[];periods=[];sourceMode="none";$("status").textContent="Cleared. No live source connected.";render();renderConn();});
+render();renderConn();
+const saved=localStorage.getItem("wingoSource");if(saved){$("source").value=saved;load();}
 </script></body></html>
