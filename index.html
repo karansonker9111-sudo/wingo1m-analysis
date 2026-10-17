@@ -1,1 +1,78 @@
-
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1020">
+<title>Wingo Analysis</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1020;--panel:#121a2d;--panel2:#18233b;--text:#eef3ff;--muted:#9eacc9;--line:#293653;--accent:#62d6c7;--warn:#ffcc80}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#172342,var(--bg) 60%);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:980px;margin:auto;padding:22px 14px 50px}header{display:flex;align-items:center;gap:12px;margin-bottom:18px}.logo{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#62d6c7,#6f8cff);color:#07121e;font-weight:900;font-size:20px}h1{font-size:25px;margin:0}header p{margin:2px 0 0;color:var(--muted)}
+.panel{background:linear-gradient(160deg,var(--panel),#10172a);border:1px solid var(--line);border-radius:18px;padding:17px;margin:13px 0;box-shadow:0 10px 30px #0002}.panel h2{font-size:17px;margin:0 0 12px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.field{flex:1;min-width:180px}label{display:block;color:var(--muted);font-size:13px;margin-bottom:6px}input,select,button{font:inherit;border-radius:11px;border:1px solid var(--line);padding:11px 12px;background:#0c1426;color:var(--text);width:100%}button{cursor:pointer;background:var(--accent);color:#071923;border:0;font-weight:750;width:auto;min-width:110px}button.secondary{background:#24314e;color:var(--text);border:1px solid #344566}button:disabled{opacity:.5}.small{font-size:12px;color:var(--muted)}.status{padding:10px 12px;border-radius:10px;background:#0c1426;border:1px solid var(--line);color:var(--muted);overflow-wrap:anywhere}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.stat{padding:13px;background:var(--panel2);border-radius:12px}.stat span{display:block;color:var(--muted);font-size:12px}.stat strong{font-size:22px}.pills{display:flex;gap:8px;flex-wrap:wrap}.pill{padding:7px 11px;border-radius:999px;background:#24314e;color:var(--muted);font-size:13px}.pill.active{background:#1b4d50;color:#aaf5e8}.balls{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.ball{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;font-weight:800;background:#293653;border:1px solid #46577a}.ball.red{background:#542a42}.ball.green{background:#16483e}.ball.violet{outline:2px solid #a78bfa}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:340px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}th{font-size:12px;color:var(--muted)}.warning{color:var(--warn)}@media(max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}h1{font-size:22px}.panel{padding:14px}}
+</style>
+</head>
+<body><main>
+<header><div class="logo">W</div><div><h1>Wingo Analysis</h1><p>History-based statistics • transparent, no guaranteed predictions</p></div></header>
+<section class="panel">
+<h2>1. History source</h2>
+<p class="small">Paste a public JSON URL you are allowed to access. The source must permit browser CORS, or use your own authorized API. No login token or private key should be entered here.</p>
+<div class="row"><div class="field"><label for="source">Public JSON endpoint URL</label><input id="source" type="url" placeholder="https://example.com/history.json"></div><button id="load">Load history</button></div>
+<div class="row" style="margin-top:10px"><button class="secondary" id="demo">Use demo data</button><button class="secondary" id="clear">Clear</button></div>
+<div class="status" id="status" style="margin-top:12px">Ready. Demo data is available; live source is not connected.</div>
+</section>
+<section class="panel">
+<h2>2. Recent history</h2>
+<div class="row"><div class="field"><label for="count">Results to analyze</label><select id="count"><option>10</option><option>20</option><option selected>30</option><option>50</option><option>100</option></select></div><div class="field"><label for="mode">Game interval label</label><select id="mode"><option>30 seconds</option><option selected>1 minute</option><option>3 minutes</option><option>5 minutes</option></select></div></div>
+<div class="balls" id="balls"></div><div class="small" id="historyNote">No history loaded.</div>
+</section>
+<section class="panel"><h2>3. Observed statistics</h2>
+<div class="stats"><div class="stat"><span>Valid results</span><strong id="valid">0</strong></div><div class="stat"><span>Big (5–9)</span><strong id="big">0</strong></div><div class="stat"><span>Small (0–4)</span><strong id="small">0</strong></div><div class="stat"><span>Most common digit</span><strong id="common">—</strong></div></div>
+<div class="row" style="margin-top:14px"><div class="field"><label>Big / Small split</label><div class="pills" id="split"></div></div></div>
+<div class="tablewrap"><table><thead><tr><th>Digit</th><th>Count</th><th>Share</th><th>Big/Small</th></tr></thead><tbody id="digitTable"></tbody></table></div>
+</section>
+<section class="panel"><h2>4. Pattern notes</h2><div id="notes" class="status">Load history to see descriptive statistics.</div><p class="small warning" style="margin-bottom:0">Important: past outcomes do not reliably predict the next result. Any “possible numbers” are only frequency-based candidates, not a guaranteed forecast. Do not stake money based on this analysis.</p></section>
+<footer class="small">Wingo Analysis • Live connection only works with a permitted, reachable JSON endpoint.</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+let history=[],sourceMode="none";
+function extract(payload){
+ let obj=payload;
+ if(typeof obj==="string") obj=JSON.parse(obj);
+ let arr=Array.isArray(obj)?obj:(obj?.data?.list||obj?.data?.data||obj?.data?.results||obj?.list||obj?.results||obj?.records||obj?.history||[]);
+ if(!Array.isArray(arr)) throw Error("JSON mila, lekin results ki list nahi mili.");
+ return arr.map(item=>{
+   let raw=(typeof item==="number"||typeof item==="string")?item:(item?.number??item?.result??item?.openNumber??item?.lotteryNumber??item?.winningNumber??item?.value??item?.premium);
+   let match=String(raw??"").match(/\d/);
+   return match?Number(match[0]):null;
+ }).filter(n=>Number.isInteger(n)&&n>=0&&n<=9);
+}
+function render(){
+ const n=Number($("count").value), data=history.slice(0,n), valid=data.length;
+ $("balls").innerHTML=data.map(d=>`<span class="ball ${d===0||d===5?'violet':''} ${[1,3,7,9].includes(d)?'green':'red'}">${d}</span>`).join("");
+ $("historyNote").textContent=valid?`Showing ${valid} valid digits (newest first where source supplies newest first). Interval: ${$("mode").value}.`:"No valid history loaded.";
+ const big=data.filter(d=>d>=5).length, small=valid-big, counts=Array(10).fill(0); data.forEach(d=>counts[d]++);
+ $("valid").textContent=valid;$("big").textContent=big;$("small").textContent=small;
+ const max=Math.max(...counts,0), common=counts.indexOf(max); $("common").textContent=valid?`${common} (${max})`:"—";
+ $("split").innerHTML=valid?`<span class="pill active">Big ${Math.round(big/valid*100)}%</span><span class="pill">Small ${Math.round(small/valid*100)}%</span>`:"—";
+ $("digitTable").innerHTML=counts.map((c,d)=>`<tr><td>${d}</td><td>${c}</td><td>${valid?Math.round(c/valid*100):0}%</td><td>${d>=5?"Big":"Small"}</td></tr>`).join("");
+ const streak=data.length?(()=>{let k=1;for(let i=1;i<data.length;i++){if((data[i]>=5)===(data[0]>=5))k++;else break;}return `${data[0]>=5?"Big":"Small"} × ${k} at newest end`;})():"No data";
+ const ranked=counts.map((c,d)=>({d,c})).sort((a,b)=>b.c-a.c||a.d-b.d).slice(0,3).map(x=>x.d).join(", ");
+ const zeroes=counts.map((c,d)=>({c,d})).filter(x=>x.c===0).map(x=>x.d);
+ $("notes").textContent=valid?`Observed in this sample: ${streak}. Top 3 frequency digits: ${ranked}. Digits not seen in this sample: ${zeroes.length?zeroes.join(", "):"none"}. These describe only the selected history window; they do not establish what comes next.`:"Load history to see descriptive statistics.";
+}
+async function load(){
+ const url=$("source").value.trim();if(!url){$("status").textContent="Pehle authorized public JSON endpoint URL daalein.";return;}
+ try{new URL(url);$("status").textContent="Loading…";
+ const r=await fetch(url,{headers:{Accept:"application/json"},cache:"no-store"});if(!r.ok)throw Error(`HTTP ${r.status}. Source may block requests.`);
+ const payload=await r.json();const parsed=extract(payload);if(!parsed.length)throw Error("JSON me 0–9 results nahi mile.");
+ history=parsed;sourceMode="live";$("status").textContent=`Connected: ${parsed.length} valid results read. Refresh manually when needed.`;render();
+ }catch(e){$("status").textContent=`Could not load history: ${e.message}. This can be caused by CORS or source restrictions. Use an authorized API that permits browser access.`;}
+}
+$("load").addEventListener("click",load);
+$("count").addEventListener("change",render);$("mode").addEventListener("change",render);
+$("demo").addEventListener("click",()=>{history=[8,0,8,2,7,7,8,9,8,0,4,6,3,5,2,1,9,6,4,7,3,8,2,5,0,6,1,7,4,9];sourceMode="demo";$("status").textContent="Demo data loaded (sample only; not live game results).";render();});
+$("clear").addEventListener("click",()=>{history=[];sourceMode="none";$("status").textContent="Cleared. No live source connected.";render();});
+render();
+</script></body></html>
